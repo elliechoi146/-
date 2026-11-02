@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f3f0e8">
+<title>바른소리 · 뉴스 리터러시</title>
+<style>
+:root{--paper:#f3f0e8;--ink:#20231f;--muted:#686c66;--line:#deded5;--white:#fff;--blue:#2459a9;--blue-bg:#edf3ff;--green:#24734b;--green-bg:#eaf6ef;--red:#b52d32;--red-bg:#fff0f0;--purple:#7446a5;--purple-bg:#f4edfb;--yellow:#80620a;--yellow-bg:#fff8d9;--orange:#a85418;--orange-bg:#fff0e4;--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.6}button,input,textarea,select{font:inherit}button{cursor:pointer;min-height:44px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);padding:10px 14px;font-weight:650}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #5788d8;outline-offset:2px}button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}button.secondary{background:var(--blue-bg);border-color:#d5e1fa;color:var(--blue)}button.danger{color:var(--red);border-color:#e8b9b9;background:#fff7f7}button:disabled{opacity:.45;cursor:not-allowed}a{color:var(--blue);overflow-wrap:anywhere}.shell{width:min(100% - 32px,980px);margin:0 auto;padding:20px 0 48px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.brand{font-weight:850;letter-spacing:-.04em;font-size:20px;display:flex;align-items:center;gap:9px}.brand-mark{width:30px;height:30px;border:2px solid var(--ink);display:grid;place-items:center;border-radius:8px;font-size:15px}.local-label{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:5px 9px;background:#fff}.panel{background:var(--white);border:1px solid #e8e7e0;border-radius:var(--radius);padding:22px;box-shadow:0 8px 26px #28251a08}.screen{display:none}.screen.active{display:block}.hero{min-height:64vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:36px 8px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}h1{font-size:clamp(38px,8vw,66px);line-height:1.08;letter-spacing:-.06em;margin:14px 0 16px}h2{font-size:clamp(23px,4vw,30px);line-height:1.25;letter-spacing:-.035em;margin:0 0 12px}h3{font-size:18px;line-height:1.35;margin:0 0 10px}p{margin:8px 0 14px}.muted{color:var(--muted)}.small{font-size:13px}.hero-copy{max-width:520px;color:var(--muted);margin:0 auto 24px}.hero .primary{min-width:190px}.notice{border:1px solid #d9e1ee;background:#f7f9fc;border-radius:12px;padding:12px 14px;color:#404b5d;font-size:13px}.notice strong{color:var(--ink)}.stack{display:grid;gap:16px}.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.between{justify-content:space-between}.field{display:grid;gap:7px;margin:14px 0}.field label{font-size:14px;font-weight:750}.field input,.field textarea,.field select{width:100%;border:1px solid #cfd1ca;border-radius:10px;padding:12px;background:#fff;color:var(--ink);min-width:0}.field textarea{resize:vertical;min-height:160px}.field input::placeholder,.field textarea::placeholder{color:#8a8e87}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.actions>*{flex:1}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}.step{color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.08em}.legend{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:750;border-radius:99px;padding:4px 9px;border:1px solid transparent}.tag.fact{color:var(--green);background:var(--green-bg)}.tag.opinion{color:var(--yellow);background:var(--yellow-bg)}.tag.check{color:var(--orange);background:var(--orange-bg)}.tag.bias{color:var(--purple);background:var(--purple-bg)}.tag.plain{color:#555;background:#f1f2ee}.article-title{font-size:23px;font-weight:800;line-height:1.35;letter-spacing:-.025em;margin:4px 0 8px}.meta{font-size:13px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}.article-body{font-size:16px;line-height:2.1;overflow-wrap:anywhere}.sentence{display:inline;line-height:2.1;border-radius:3px;cursor:pointer;padding:1px 0;box-decoration-break:clone;-webkit-box-decoration-break:clone}.sentence:hover,.sentence:focus{background:#eef1f4;outline:2px solid #aab9ce;outline-offset:1px}.sentence.fact{border-bottom:2px solid var(--green)}.sentence.opinion{border-bottom:2px solid #d3b33c;background:linear-gradient(transparent 70%,#fff5be 70%)}.sentence.check{border-bottom:2px solid var(--orange);background:linear-gradient(transparent 70%,#ffe3cb 70%)}.sentence.bias{border-bottom:2px solid var(--purple);background:linear-gradient(transparent 70%,#eee0fa 70%)}.sentence.plain{border-bottom:2px solid transparent}.detail-box{margin-top:16px;padding:15px;border-radius:12px;background:#f8f8f5;border:1px solid var(--line)}.detail-box p:last-child{margin-bottom:0}.detail-box .reason{font-size:14px}.metric{display:grid;grid-template-columns:1fr;gap:10px}.status-card{border:1px solid #e6d5b9;background:#fffaf1;padding:16px;border-radius:13px}.status-title{font-size:18px;font-weight:850}.status-title.hold{color:#8a4a16}.status-title.caution{color:#6f5b12}.status-title.review{color:var(--green)}.analysis-list{display:grid;gap:10px}.analysis-item{border:1px solid var(--line);border-radius:12px;padding:13px}.analysis-item .quote{font-weight:750;margin-bottom:6px}.analysis-item p{font-size:13px;color:var(--muted);margin:0}.subnav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.subnav button{font-size:13px}.chat-log{display:grid;gap:12px;margin:16px 0}.bubble{padding:12px 14px;border-radius:13px;max-width:92%;white-space:pre-wrap;overflow-wrap:anywhere}.bubble.user{margin-left:auto;background:#20231f;color:#fff}.bubble.assistant{background:#f0f2f5;border:1px solid #e0e3e7}.suggestions{display:flex;gap:8px;flex-wrap:wrap}.suggestions button{font-size:13px;text-align:left}.checklist{display:grid;gap:12px}.check-row{padding:14px;border:1px solid var(--line);border-radius:12px;display:grid;gap:10px}.check-row legend{font-weight:750;padding:0 4px}.choice-row{display:flex;gap:8px;flex-wrap:wrap}.choice{position:relative}.choice input{position:absolute;opacity:0;width:1px;height:1px}.choice span{display:inline-flex;align-items:center;justify-content:center;border:1px solid #cfd1ca;border-radius:9px;padding:8px 12px;min-height:40px;font-size:13px;cursor:pointer}.choice input:checked+span{background:var(--blue-bg);border-color:var(--blue);color:var(--blue);font-weight:800}.choice input:focus-visible+span{outline:3px solid #5788d8;outline-offset:2px}.card-preview{border:1px solid #d9dcd4;border-left:5px solid var(--blue);border-radius:12px;padding:18px;background:#fcfcfa}.card-preview h3{font-size:21px}.card-preview .answer{white-space:pre-wrap;overflow-wrap:anywhere}.history-list{display:grid;gap:8px}.history-item{display:flex;justify-content:space-between;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px}.history-item button{min-height:38px;padding:7px 10px;font-size:13px}.empty{padding:20px;border:1px dashed #cfd1ca;border-radius:12px;text-align:center;color:var(--muted)}.footer{margin-top:18px;text-align:center;color:var(--muted);font-size:12px}.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#20231f;color:#fff;padding:12px 18px;border-radius:12px;box-shadow:0 8px 24px #0002;max-width:calc(100% - 32px);z-index:10}.hidden{display:none!important}.loading-dot{display:inline-block;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.25}}@media(min-width:700px){.shell{padding-top:28px}.panel{padding:30px}.metric{grid-template-columns:1.1fr 1fr}.split{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start}.hero{min-height:70vh}.article-body{font-size:17px}.actions>*{flex:0 1 auto;min-width:160px}}@media(min-width:1100px){.shell{width:min(100% - 48px,1080px)}.result-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:18px;align-items:start}.result-grid .panel+.panel{margin-top:0}}@media(max-width:390px){.panel{padding:17px}.shell{width:calc(100% - 32px)}.topbar{align-items:flex-start}.local-label{max-width:135px;text-align:center}.actions{flex-direction:column}.actions>*{width:100%}.section-head{align-items:flex-start}.article-title{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">ㅂ</span> 바른소리</div>
+    <span class="local-label" id="syncStatus" title="저장 연결 상태">저장 연결 확인 중…</span>
+  </header>
+
+  <main>
+    <section id="home" class="screen active">
+      <div class="panel hero">
+        <div class="eyebrow">READ · QUESTION · DECIDE</div>
+        <h1>정보를 읽고,<br>스스로 판단하다.</h1>
+        <p class="hero-copy">뉴스를 무조건 믿거나 의심하기보다, 출처와 근거를 살펴보고 내 판단을 만들어 보세요.</p>
+        <button class="primary" id="startBtn">시작하기 <span aria-hidden="true">→</span></button>
+        <p class="small muted" style="margin-top:20px">점수로 진실을 단정하지 않습니다. 최종 판단은 여러분의 몫입니다.</p>
+      </div>
+      <div class="panel stack">
+        <h3>바른소리 사용 방법</h3>
+        <div class="row"><span class="tag fact">사실 서술</span><span class="tag opinion">의견·주장</span><span class="tag check">확인 필요</span><span class="tag bias">편향 표현</span></div>
+        <p class="muted small">문장 분석은 교육용 규칙 기반 시연입니다. 실제 AI·외부 사실 검증 서비스에 연결되어 있지 않습니다.</p>
+        <div class="actions"><button id="examplesBtn">예시 기사 불러오기</button><button id="historyBtn">저장 기록 보기</button></div>
+      </div>
+    </section>
+
+    <section id="input" class="screen">
+      <div class="panel">
+        <div class="section-head"><div><div class="step">STEP 01 · ARTICLE</div><h2>어떤 기사를 살펴볼까요?</h2><p class="muted">기사 본문을 붙여넣는 것이 가장 정확한 시작입니다.</p></div><button class="small" id="homeFromInput">홈</button></div>
+        <div class="notice"><strong>URL은 참고용입니다.</strong> 이 초안은 사이트에서 본문을 자동으로 가져오지 않습니다. URL 접근 제한을 피하기 위해 기사 본문을 직접 붙여넣어 주세요.</div>
+        <div class="field"><label for="articleUrl">기사 URL (선택)</label><input id="articleUrl" type="url" placeholder="https://news.example.com/article"></div>
+        <div class="field"><label for="articleTitle">기사 제목 (선택)</label><input id="articleTitle" placeholder="기사 제목을 입력하세요"></div>
+        <div class="row">
+          <div class="field" style="flex:1;min-width:130px"><label for="publisher">언론사·출처 (선택)</label><input id="publisher" placeholder="예: ○○일보"></div>
+          <div class="field" style="flex:1;min-width:130px"><label for="authorDate">작성자·발행일 (선택)</label><input id="authorDate" placeholder="예: 홍길동 · 2026.11.02"></div>
+        </div>
+        <div class="field"><label for="articleText">기사 본문 <span style="color:var(--red)">*</span></label><textarea id="articleText" placeholder="분석할 기사 본문을 여기에 붙여넣으세요. 문장별로 나누어 살펴봅니다." rows="8"></textarea><div class="row between small muted"><span id="charCount">0자</span><span>최소 20자 권장</span></div></div>
+        <div id="inputError" class="notice hidden" role="alert"></div>
+        <div class="actions"><button id="loadDemoBtn">시연용 예시</button><button class="primary" id="analyzeBtn">기사 분석하기 →</button></div>
+      </div>
+      <div class="footer">분석 내용은 이 브라우저에 저장되며, Supabase 설정이 완료되면 현재 브라우저의 익명 사용자 공간에도 동기화됩니다.</div>
+    </section>
+
+    <section id="loading" class="screen">
+      <div class="panel hero" style="min-height:45vh">
+        <div class="eyebrow">ANALYSIS GUIDE</div><h2>기사를 문장별로 살펴보는 중입니다<span class="loading-dot">...</span></h2>
+        <p class="muted">실제 AI 서버를 호출하는 대신, 브라우저 안의 교육용 규칙으로 표시를 만들고 있습니다.</p>
+        <div class="actions" style="width:min(100%,380px)"><button id="cancelLoading">돌아가기</button></div>
+      </div>
+    </section>
+
+    <section id="result" class="screen">
+      <div class="section-head"><div><div class="step">STEP 02 · READ THE MARKS</div><h2>기사 분석 가이드</h2><p class="muted">색이 표시된 문장이나 표현을 눌러 이유를 확인하세요.</p></div><button id="askTopBtn" class="secondary">추가 질문 ↗</button></div>
+      <div class="result-grid">
+        <div class="panel stack">
+          <div>
+            <div class="article-title" id="resultTitle">기사 제목</div>
+            <div class="meta" id="resultMeta"></div>
+          </div>
+          <div class="notice">이 결과는 문장 성격과 확인할 지점을 찾는 <strong>교육용 가이드</strong>입니다. 참·거짓이나 기사 신뢰도를 확정하지 않습니다.</div>
+          <div class="legend"><span class="tag fact">초록 · 사실 서술</span><span class="tag opinion">노랑 · 의견·주장</span><span class="tag check">주황 · 확인 필요</span><span class="tag bias">보라 · 편향 표현</span></div>
+          <div id="articleRendered" class="article-body" aria-label="분석 표시가 적용된 기사 본문"></div>
+          <div id="selectedDetail" class="detail-box hidden" aria-live="polite"></div>
+        </div>
+        <div class="stack" style="margin-top:16px" id="resultSide">
+          <div class="panel">
+            <h3>한눈에 보기</h3>
+            <div id="statusCard" class="status-card"><div class="status-title hold">판단 보류 · 추가 검증 필요</div><p class="small">이 앱은 신뢰도 점수를 산출하지 않습니다.</p></div>
+            <div id="summaryCounts" class="analysis-list" style="margin-top:12px"></div>
+          </div>
+          <div class="panel">
+            <h3>읽으며 확인할 것</h3>
+            <div class="analysis-list" id="analysisList"></div>
+            <div class="actions"><button class="secondary" id="goAskBtn">선택 문장 질문하기</button><button class="primary" id="goChecklistBtn">체크리스트로 →</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="actions"><button id="newArticleBtn">다른 기사 분석하기</button><button id="saveAnalysisBtn">분석 기록 저장</button></div>
+    </section>
+
+    <section id="questions" class="screen">
+      <div class="panel">
+        <div class="section-head"><div><div class="step">STEP 03 · ASK</div><h2>이 부분, 더 알아보기</h2><p class="muted">선택한 문장과 기사 맥락을 바탕으로 질문을 정리해 보세요.</p></div><button id="backResultBtn">← 분석으로</button></div>
+        <div class="detail-box"><div class="small muted">선택한 문장</div><p id="questionQuote" style="font-weight:800;margin-top:5px"></p><p id="questionReason" class="reason muted"></p></div>
+        <h3 style="margin-top:20px">이런 질문도 할 수 있어요</h3>
+        <div id="suggestedQuestions" class="suggestions"></div>
+        <div id="chatLog" class="chat-log" aria-live="polite"></div>
+        <form id="questionForm">
+          <div class="field"><label for="questionInput">추가 질문</label><textarea id="questionInput" rows="3" placeholder="예: 이 통계를 확인하려면 어떤 자료가 필요할까?"></textarea></div>
+          <div class="actions"><button class="primary" type="submit">질문 보내기</button><button type="button" id="clearChatBtn">대화 지우기</button></div>
+        </form>
+        <p class="small muted">※ 실제 GPT 연결 전 단계이므로 답변은 입력 문구를 바탕으로 한 교육용 안내입니다. 외부 자료를 검색하거나 사실을 확인하지 않습니다.</p>
+        <div class="actions"><button class="primary" id="questionToChecklist">체크리스트로 →</button></div>
+      </div>
+    </section>
+
+    <section id="checklist" class="screen">
+      <div class="panel">
+        <div class="section-head"><div><div class="step">STEP 04 · CHECK YOURSELF</div><h2>내가 직접 확인하기</h2><p class="muted">점수는 매기지 않습니다. 확인한 근거를 표시해 보세요.</p></div><button id="checkTopAsk">추가 질문 ↗</button></div>
+        <div class="notice">‘확인’은 실제로 자료를 확인했다는 뜻입니다. 기사에 적혀 있다는 이유만으로 확인에 체크하지 마세요.</div>
+        <form id="checklistForm" class="checklist">
+          <fieldset class="check-row"><legend>1. 출처 자료</legend><p class="small muted">공식 자료, 원문 통계, 관련 기관 자료 등 근거를 찾았나요?</p><div class="choice-row" data-check="source"><label class="choice"><input type="radio" name="source" value="확인"><span>확인</span></label><label class="choice"><input type="radio" name="source" value="미확인"><span>미확인</span></label><label class="choice"><input type="radio" name="source" value="해당 없음"><span>해당 없음</span></label></div></fieldset>
+          <fieldset class="check-row"><legend>2. 작성자와 발행일</legend><p class="small muted">기사 작성자와 발행일이 명확하게 표시되어 있나요?</p><div class="choice-row" data-check="author"><label class="choice"><input type="radio" name="author" value="확인"><span>확인</span></label><label class="choice"><input type="radio" name="author" value="미확인"><span>미확인</span></label><label class="choice"><input type="radio" name="author" value="해당 없음"><span>해당 없음</span></label></div></fieldset>
+          <fieldset class="check-row"><legend>3. 인용과 전문가</legend><p class="small muted">인용한 사람의 이름·전문 분야·관련성이 확인되나요?</p><div class="choice-row" data-check="quote"><label class="choice"><input type="radio" name="quote" value="확인"><span>확인</span></label><label class="choice"><input type="radio" name="quote" value="미확인"><span>미확인</span></label><label class="choice"><input type="radio" name="quote" value="해당 없음"><span>해당 없음</span></label></div></fieldset>
+          <fieldset class="check-row"><legend>4. 제목과 본문</legend><p class="small muted">제목이 본문 내용을 과장하거나 다르게 전달하지 않나요?</p><div class="choice-row" data-check="title"><label class="choice"><input type="radio" name="title" value="확인"><span>확인</span></label><label class="choice"><input type="radio" name="title" value="미확인"><span>미확인</span></label><label class="choice"><input type="radio" name="title" value="해당 없음"><span>해당 없음</span></label></div></fieldset>
+          <fieldset class="check-row"><legend>5. 사실과 의견</legend><p class="small muted">주장·전망·평가를 객관적인 사실과 구분했나요?</p><div class="choice-row" data-check="factOpinion"><label class="choice"><input type="radio" name="factOpinion" value="확인"><span>확인</span></label><label class="choice"><input type="radio" name="factOpinion" value="미확인"><span>미확인</span></label><label class="choice"><input type="radio" name="factOpinion" value="해당 없음"><span>해당 없음</span></label></div></fieldset>
+          <fieldset class="check-row"><legend>6. 표현과 맥락</legend><p class="small muted">충격·파멸 같은 자극적 표현, 통계의 조사 대상·기간을 살펴봤나요?</p><div class="choice-row" data-check="language"><label class="choice"><input type="radio" name="language" value="확인"><span>확인</span></label><label class="choice"><input type="radio" name="language" value="미확인"><span>미확인</span></label><label class="choice"><input type="radio" name="language" value="해당 없음"><span>해당 없음</span></label></div></fieldset>
+          <div class="actions"><button type="button" id="checkBackBtn">← 분석으로</button><button type="submit" class="primary">내 판단 카드 작성 →</button></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="card" class="screen">
+      <div class="panel">
+        <div class="section-head"><div><div class="step">STEP 05 · MY LITERACY CARD</div><h2>나의 리터러시 카드</h2><p class="muted">AI 안내와 체크 결과를 참고하되, 최종 판단은 직접 작성합니다.</p></div><button id="cardBackBtn">← 체크리스트</button></div>
+        <form id="cardForm">
+          <div class="field"><label for="finalDecision">이 기사를 어떻게 판단하나요?</label><select id="finalDecision" required><option value="">선택하세요</option><option>추가 확인 후 판단하겠다</option><option>현재 근거로는 대체로 신뢰할 수 있다</option><option>일부 내용은 의심하며 더 확인하겠다</option><option>현재로서는 신뢰하기 어렵다</option><option>판단을 보류하겠다</option></select></div>
+          <div class="field"><label for="decisionReason">판단 이유</label><textarea id="decisionReason" rows="3" placeholder="어떤 근거와 체크 결과를 바탕으로 판단했나요?" required></textarea></div>
+          <div class="field"><label for="suspiciousPart">가장 의심스러웠던 부분</label><textarea id="suspiciousPart" rows="2" placeholder="문장이나 표현을 적어 보세요."></textarea></div>
+          <div class="field"><label for="nextCheck">추가로 확인하고 싶은 내용</label><textarea id="nextCheck" rows="2" placeholder="어떤 공식 자료나 다른 보도를 찾아볼까요?"></textarea></div>
+          <div class="actions"><button type="button" id="cardCancelBtn">돌아가기</button><button type="submit" class="primary" id="saveCardBtn">카드 저장하기</button></div>
+        </form>
+        <div id="savedCardArea" class="hidden" style="margin-top:22px">
+          <div class="card-preview" id="cardPreview"></div>
+          <div class="actions"><button id="editCardBtn">카드 수정</button><button id="deleteCardBtn" class="danger">이 카드 삭제</button><button id="finishBtn" class="primary">완료 · 홈으로</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="history" class="screen">
+      <div class="panel">
+        <div class="section-head"><div><div class="step">LOCAL HISTORY</div><h2>내 저장 기록</h2><p class="muted">현재 브라우저의 기록과 연결된 Supabase 익명 사용자 기록을 표시합니다.</p></div><button id="backHomeHistory">홈</button></div>
+        <div id="historyItems" class="history-list"></div>
+        <div class="actions"><button id="exportBtn">기록 JSON 내보내기</button><button id="deleteAllBtn" class="danger">분석 기록 전체 삭제</button></div>
+        <p class="small muted">기록은 현재 브라우저와 현재 익명 사용자 계정에서 삭제됩니다. 익명 세션은 다른 기기와 자동 공유되지 않습니다.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">바른소리 · 뉴스 리터러시 · AI 사실 검증 서비스 아님<br>제1회 호연고 해커톤 · 9모둠</footer>
+</div>
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(() => {
+'use strict';
+// 브라우저용 publishable key입니다. 실제 접근 권한은 Supabase Auth + RLS 정책으로 제한합니다.
+const SUPABASE_URL = 'https://pdrxvhbautdlvehdzuso.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_jSe9tFRINiFoZTbWIIsapg_YeYRjH0U';
+let sbClient = null, cloudUserId = null, cloudReady = false;
+function setSyncStatus(message, isCloud=false) {
+ const el = document.getElementById('syncStatus');
+ if (el) { el.textContent = message; el.title = message; el.style.color = isCloud ? '#24734b' : '#686c66'; }
+}
+async function initSupabase() {
+ try {
+   if (!window.supabase || !window.supabase.createClient) throw new Error('Supabase 라이브러리를 불러오지 못했습니다.');
+   sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+     auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+   });
+   let { data: { session } } = await sbClient.auth.getSession();
+   if (!session) {
+     const result = await sbClient.auth.signInAnonymously();
+     if (result.error) throw result.error;
+     session = result.data.session;
+   }
+   cloudUserId = session?.user?.id || null;
+   if (!cloudUserId) throw new Error('익명 사용자 세션을 만들 수 없습니다.');
+   cloudReady = true;
+   setSyncStatus('☁ Supabase 연결됨', true);
+ } catch (err) {
+   cloudReady = false;
+   setSyncStatus('이 기기에 저장 · 클라우드 연결 필요');
+   console.warn('Supabase 연결을 사용할 수 없습니다. 로컬 저장을 유지합니다.', err);
+ }
+}
+const supabaseInitPromise = initSupabase();
+const KEY='bareunsori_v1_records';
+const $=id=>document.getElementById(id);
+const screens=['home','input','loading','result','questions','checklist','card','history'];
+let currentArticle=null, selectedIndex=0, chat=[], editingRecordId=null, savedCard=null, loadingTimer=null;
+const demoText=`이번 정부의 경제 정책은 국민 경제에 큰 도움이 될 것이다. 이번 정책 시행 이후 실업률이 50% 증가했다. 무능한 정부가 역사상 최악의 정책으로 국민 모두를 파멸시킬 것이다. 한국은행은 기준금리를 발표했다.`;
+const examples=[
+{title:'정책 효과에 관한 가상 기사',publisher:'시연용 가상 자료',authorDate:'작성자 미상 · 발행일 미상',text:demoText},
+{title:'통계 보도 예시',publisher:'시연용 가상 자료',authorDate:'편집부 · 2026.11.02',text:'한국의 청소년 독서 시간은 지난해보다 증가했다. 한 조사에 따르면 청소년의 80%가 독서를 줄였다고 한다. 전문가들은 이런 변화가 학업 성적을 크게 떨어뜨릴 것이라고 전망했다. 이 놀라운 결과는 모든 학생에게 심각한 위기다.'},
+{title:'일반적인 정보 전달 예시',publisher:'시연용 가상 자료',authorDate:'자료 편집팀 · 2026.11.02',text:'한국은행은 기준금리를 발표했다. 발표 자료에는 기준금리와 관련한 설명이 담겼다. 정책의 효과는 여러 경제 지표와 함께 살펴볼 필요가 있다.'},
+{title:'인용과 출처 확인 예시',publisher:'시연용 가상 자료',authorDate:'작성자 미상 · 발행일 미상',text:'한 관계자는 이번 변화가 역사상 가장 충격적인 사건이라고 말했다. 전문가들은 이 정책이 모든 문제를 해결할 것이라고 밝혔다. 자료에 따르면 이용자가 300% 늘었다. 다만 자료의 조사 대상과 기간은 기사에 제시되지 않았다.'},
+{title:'사실과 의견 혼합 예시',publisher:'시연용 가상 자료',authorDate:'시연 편집부 · 2026.11.02',text:'시청은 2025년 4월 새 사업을 시작했다고 발표했다. 이 사업은 지역 주민에게 큰 도움이 될 것으로 보인다. 일부 주민은 사업에 만족한다고 말했다. 이 사업은 의심할 여지 없이 최고의 정책이다.'}
+];
+function showScreen(name){screens.forEach(s=>$(s).classList.toggle('active',s===name));window.scrollTo({top:0,behavior:'smooth'});}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.remove('hidden');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.add('hidden'),2600);}
+function getRecords(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}}
+function setRecords(records){try{localStorage.setItem(KEY,JSON.stringify(records));return true}catch(e){toast('저장 공간이 부족합니다. 기록을 내보내거나 일부 삭제해 주세요.');return false}}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function splitSentences(text){return text.match(/[^.!?。！？\n]+[.!?。！？]?|\n+/g)?.map(s=>s.trim()).filter(Boolean)||[]}
+function classify(sentence){
+ const s=sentence.trim(), labels=[];
+ const biasWords=['무능한','역사상 최악','파멸','충격','충격적','파격','모두','절대','최고의','최악의','끔찍한','믿을 수 없는','의심할 여지 없이','반드시','완전히','대재앙','경악'];
+ const opinionWords=['도움이 될 것이다','것이다','것으로 보인다','전망한다','예상된다','생각한다','주장한다','최고의','필요하다','바람직하다','문제다','큰 도움이','좋을 것이다','나쁠 것이다'];
+ const checkWords=['에 따르면','관계자','전문가','통계','조사','증가했다','감소했다','%','퍼센트','배 늘','배 증가','원인','때문에','입증','확인됐다','발표했다','설립되었다','설립됐다','기록했다'];
+ const biasFound=biasWords.filter(w=>s.includes(w));
+ const opinionFound=opinionWords.filter(w=>s.includes(w));
+ const checkFound=checkWords.filter(w=>s.includes(w));
+ if(biasFound.length)labels.push({type:'bias',name:'편향·자극 표현',reason:`‘${biasFound.join('’, ‘')}’ 같은 표현은 평가나 감정적 반응을 유도할 수 있어요. 표현의 강도와 뒷받침 근거가 맞는지 살펴보세요.`});
+ if(checkFound.length)labels.push({type:'check',name:'확인 필요',reason:'통계·인용·수치·인과관계 등은 원자료, 조사 대상과 기간, 인용자의 신원 등을 확인해야 해요. 기사에 근거가 없다고 해서 거짓이라는 뜻은 아닙니다.'});
+ if(opinionFound.length)labels.push({type:'opinion',name:'의견·주장',reason:'전망·평가·해석이 포함된 표현이에요. 사실로 확인된 내용과 작성자 또는 인용자의 판단을 구분해 읽어 보세요.'});
+ if(!labels.length && /(발표했다|설립되었다|시작했다|포함됐다|담겼다|열렸다|개최됐다|기록됐다)/.test(s))labels.push({type:'fact',name:'사실 서술 형태',reason:'사건이나 기록을 전달하는 형태의 문장이에요. 문장 형태만으로 실제 사실임이 확인된 것은 아니므로 원자료가 있는지 확인할 수 있어요.'});
+ if(!labels.length)labels.push({type:'plain',name:'별도 표시 없음',reason:'규칙 기반 시연에서 뚜렷한 표시 표현을 찾지 못했어요. 이것이 문장의 사실 여부나 신뢰성을 보장하지는 않습니다.'});
+ const primary=labels.some(x=>x.type==='bias')?'bias':labels.some(x=>x.type==='check')?'check':labels.some(x=>x.type==='opinion')?'opinion':labels.some(x=>x.type==='fact')?'fact':'plain';
+ return {text:s,labels,primary,reason:labels.map(x=>x.reason).join(' ')};
+}
+function startAnalysis(){
+ const text=$('articleText').value.trim();
+ $('inputError').classList.add('hidden');
+ if(text.length<20){$('inputError').textContent=text?'본문이 너무 짧아요. 분석할 문장을 조금 더 입력해 주세요.':'뉴스 기사가 없어요. 기사 본문을 붙여넣어 주세요.';$('inputError').classList.remove('hidden');$('articleText').focus();return}
+ currentArticle={id:'article-'+Date.now(),url:$('articleUrl').value.trim(),title:$('articleTitle').value.trim()||'제목을 입력하지 않은 기사',publisher:$('publisher').value.trim()||'출처 미입력',authorDate:$('authorDate').value.trim()||'작성자·발행일 미입력',text,createdAt:new Date().toISOString(),sentences:splitSentences(text).map(classify),checks:{},questions:[],card:null};
+ selectedIndex=0;chat=[];editingRecordId=null;savedCard=null;
+ showScreen('loading');clearTimeout(loadingTimer);
+ loadingTimer=setTimeout(()=>{renderResult();showScreen('result');},550);
+}
+function renderResult(){
+ $('resultTitle').textContent=currentArticle.title;
+ $('resultMeta').textContent=`${currentArticle.publisher} · ${currentArticle.authorDate}`;
+ const root=$('articleRendered');root.replaceChildren();
+ currentArticle.sentences.forEach((s,i)=>{
+   const span=document.createElement('span');span.className='sentence '+s.primary;span.tabIndex=0;span.role='button';span.setAttribute('aria-label',`문장 ${i+1}: ${s.labels.map(x=>x.name).join(', ')}`);span.textContent=s.text+' ';
+   span.addEventListener('click',()=>selectSentence(i));span.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectSentence(i)}});
+   root.appendChild(span);
+ });
+ const counts={fact:0,opinion:0,check:0,bias:0,plain:0};currentArticle.sentences.forEach(s=>s.labels.forEach(l=>{if(counts[l.type]!==undefined)counts[l.type]++}));
+ const hasConcern=counts.check>0||counts.bias>0;
+ $('statusCard').innerHTML=`<div class="status-title ${hasConcern?'hold':counts.opinion?'caution':'review'}">${hasConcern?'판단 보류 · 추가 검증 필요':counts.opinion?'표현 검토 · 근거 확인 권장':'규칙상 뚜렷한 표시가 적음'}</div><p class="small">${hasConcern?'확인 필요하거나 감정적 표현이 감지됐어요. 사실 여부는 별도 자료로 확인해야 합니다.':counts.opinion?'의견·전망을 사실과 구분하고 관련 근거를 확인하세요.':'표시가 적다는 이유로 기사 전체를 신뢰할 수 있는 것은 아닙니다.'}</p><p class="small muted">신뢰도 점수는 제공하지 않습니다.</p>`;
+ $('summaryCounts').innerHTML=[['사실 서술 형태',counts.fact,'fact'],['의견·주장',counts.opinion,'opinion'],['확인 필요',counts.check,'check'],['편향·자극 표현',counts.bias,'bias']].map(([n,c,t])=>`<div class="row between"><span class="tag ${t}">${n}</span><strong>${c}개</strong></div>`).join('');
+ const items=currentArticle.sentences.map((s,i)=>({s,i})).filter(o=>o.s.primary!=='plain');
+ $('analysisList').innerHTML=items.length?items.map(({s,i})=>`<button class="analysis-item" data-index="${i}" style="text-align:left;background:#fff"><div class="quote">${esc(s.text.length>100?s.text.slice(0,100)+'…':s.text)}</div><div class="row">${s.labels.map(l=>`<span class="tag ${l.type}">${esc(l.name)}</span>`).join('')}</div><p style="margin-top:7px">${esc(s.reason)}</p></button>`).join(''):'<div class="empty">특별히 표시된 문장이 없습니다. 표시가 없다는 것이 사실 확인을 의미하지는 않아요.</div>';
+ $('analysisList').querySelectorAll('[data-index]').forEach(b=>b.addEventListener('click',()=>selectSentence(Number(b.dataset.index))));
+ selectSentence(0);
+}
+function selectSentence(i){selectedIndex=i;const s=currentArticle.sentences[i];const d=$('selectedDetail');d.classList.remove('hidden');d.innerHTML=`<div class="row between"><strong>선택한 문장 ${i+1}</strong><span class="tag ${s.primary}">${esc(s.labels.map(l=>l.name).join(' · '))}</span></div><p style="font-weight:750">${esc(s.text)}</p><p class="reason">${esc(s.reason)}</p><div class="actions"><button class="secondary" id="detailAsk">이 문장 질문하기</button></div>`;$('detailAsk').addEventListener('click',()=>openQuestions());$('questionQuote').textContent=s.text;$('questionReason').textContent=s.reason;}
+function openQuestions(){if(!currentArticle)return;const s=currentArticle.sentences[selectedIndex];$('questionQuote').textContent=s.text;$('questionReason').textContent=s.reason;$('suggestedQuestions').innerHTML='';['어떤 근거를 추가로 확인해야 할까?','사실과 의견을 어떻게 구분할 수 있을까?','이 표현이 편향적으로 느껴지는 이유는 뭘까?'].forEach(q=>{const b=document.createElement('button');b.textContent=q;b.addEventListener('click',()=>{$('questionInput').value=q;$('questionInput').focus()});$('suggestedQuestions').appendChild(b)});renderChat();showScreen('questions');}
+function answerQuestion(q){
+ const s=currentArticle.sentences[selectedIndex];let answer='이 초안은 외부 자료를 검색하거나 실제 사실 여부를 확인할 수 없어요. 기사 안에서 근거가 제시되는지 확인하고, 원자료나 공식 발표와 다른 보도를 비교해 보세요.';
+ if(/통계|수치|자료|근거|확인/.test(q))answer='확인할 때는 ① 원자료를 낸 기관과 자료 제목 ② 조사 대상·기간·표본 ③ 비교 기준과 단위 ④ 기사에 인용된 수치가 원문과 일치하는지 살펴보세요. 현재 문장만으로는 해당 주장이 참인지 거짓인지 결정할 수 없습니다.';
+ else if(/의견|사실/.test(q))answer='사건·기록·측정값을 전달하는 문장은 사실 서술 형태일 수 있고, 평가·예측·당위가 들어가면 의견이나 주장일 수 있어요. 다만 문장 유형과 실제 사실 여부는 서로 다른 문제입니다. 원자료로 사실 여부를 따로 확인하세요.';
+ else if(/편향|표현|단어/.test(q))answer='감정적 단어, 극단적인 표현, 특정 집단을 한쪽 관점으로만 묘사하는 표현이 있는지 살펴보세요. 표현이 강하다는 사실만으로 내용이 거짓인 것은 아니며, 그 표현을 뒷받침하는 근거가 있는지가 중요합니다.';
+ return `선택한 문장: “${s.text}”\n\n${answer}\n\n다음 확인 질문: 이 주장을 뒷받침하는 원자료가 공개되어 있나요?`;
+}
+function renderChat(){const log=$('chatLog');log.innerHTML='';chat.forEach(m=>{const d=document.createElement('div');d.className='bubble '+m.role;d.textContent=m.text;log.appendChild(d)});log.scrollTop=log.scrollHeight;}
+async function saveAnalysis(){
+ if(!currentArticle)return;
+ const records=getRecords();
+ const data={...currentArticle,card:savedCard||currentArticle.card||null};
+ const existing=records.findIndex(r=>r.id===currentArticle.id);
+ if(existing>=0)records[existing]=data;else records.unshift(data);
+ const localSaved=setRecords(records);
+ await supabaseInitPromise;
+ if(cloudReady && sbClient && cloudUserId){
+   try{
+     const {error}=await sbClient.from('bareunsori_records').upsert({
+       owner_id:cloudUserId, client_id:String(data.id), title:String(data.title||'제목 없음'),
+       record:data, updated_at:new Date().toISOString()
+     },{onConflict:'owner_id,client_id'});
+     if(error)throw error;
+     setSyncStatus('☁ Supabase 동기화 완료',true);
+     toast('분석 기록을 이 기기와 Supabase에 저장했어요.');
+   }catch(err){
+     setSyncStatus('로컬 저장 · Supabase 설정 확인 필요');
+     console.error('Supabase 저장 실패:',err);
+     toast('이 기기에는 저장했지만 클라우드 저장에 실패했어요. SQL 설정과 익명 로그인을 확인해 주세요.');
+   }
+ } else if(localSaved) {
+   toast('이 기기에 저장했어요. 클라우드 연결은 아직 사용할 수 없습니다.');
+ }
+}
+function renderChecklist(){const checks=currentArticle?.checks||{};Object.entries(checks).forEach(([name,val])=>{const el=document.querySelector(`input[name="${name}"][value="${CSS.escape(val)}"]`);if(el)el.checked=true;});}
+function getChecks(){const out={};['source','author','quote','title','factOpinion','language'].forEach(n=>{out[n]=document.querySelector(`input[name="${n}"]:checked`)?.value||'미선택'});return out;}
+function renderCard(card){const c=card||{};$('cardPreview').innerHTML=`<div class="small muted">바른소리 · 나의 리터러시 카드</div><h3>${esc(currentArticle?.title||c.title||'기사')}</h3><p class="small muted">${esc(currentArticle?.publisher||c.publisher||'')} · ${esc(currentArticle?.authorDate||c.authorDate||'')}</p><div class="row"><span class="tag plain">나의 판단</span><strong>${esc(c.decision||'')}</strong></div><hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><p><strong>판단 이유</strong></p><div class="answer">${esc(c.reason||'')}</div><p><strong>가장 의심스러웠던 부분</strong></p><div class="answer">${esc(c.suspicious||'작성하지 않음')}</div><p><strong>추가로 확인할 내용</strong></p><div class="answer">${esc(c.next||'작성하지 않음')}</div><p><strong>체크리스트</strong></p><div class="answer">${Object.entries(c.checks||{}).map(([k,v])=>`${({source:'출처 자료',author:'작성자·발행일',quote:'인용과 전문가',title:'제목과 본문',factOpinion:'사실과 의견',language:'표현과 맥락'})[k]||k}: ${v}`).join('\\n')}</div><p class="small muted">이 카드는 사용자가 작성한 판단이며 사실 검증 인증서가 아닙니다.</p>`;}
+function populateCard(card){const c=card||{};$('finalDecision').value=c.decision||'';$('decisionReason').value=c.reason||'';$('suspiciousPart').value=c.suspicious||'';$('nextCheck').value=c.next||'';}
+function openCard(){renderChecklist();populateCard(savedCard);$('savedCardArea').classList.add('hidden');$('cardForm').classList.remove('hidden');showScreen('card');}
+async function showHistory(){
+ await supabaseInitPromise;
+ let records=getRecords();
+ if(cloudReady && sbClient && cloudUserId){
+   try{
+     const {data,error}=await sbClient.from('bareunsori_records').select('client_id,record,updated_at').order('updated_at',{ascending:false}).limit(100);
+     if(error)throw error;
+     const merged=new Map(records.map(r=>[String(r.id),r]));
+     (data||[]).forEach(row=>{if(row.record)merged.set(String(row.client_id),row.record)});
+     records=[...merged.values()].sort((a,b)=>String(b.updatedAt||b.createdAt||'').localeCompare(String(a.updatedAt||a.createdAt||'')));
+     setSyncStatus('☁ Supabase 기록 불러옴',true);
+   }catch(err){console.error('클라우드 기록 불러오기 실패:',err);setSyncStatus('로컬 기록 표시 · 클라우드 읽기 실패');}
+ }
+ $('historyItems').innerHTML=records.length?records.map(r=>`<div class="history-item"><div style="min-width:0"><strong>${esc(r.title||'제목 없음')}</strong><div class="small muted">${esc(r.publisher||'')} · ${new Date(r.createdAt||Date.now()).toLocaleDateString('ko-KR')}</div></div><div class="row"><button data-open="${esc(r.id)}">열기</button><button class="danger" data-delete="${esc(r.id)}" aria-label="기록 삭제">삭제</button></div></div>`).join(''):'<div class="empty">저장된 기록이 없습니다.</div>';
+ $('historyItems').querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>{const r=getRecords().find(x=>x.id===b.dataset.open);if(r){currentArticle=r;selectedIndex=0;chat=r.questions||[];savedCard=r.card||null;renderResult();showScreen('result');toast('저장 기록을 열었어요.')}}));
+ $('historyItems').querySelectorAll('[data-delete]').forEach(b=>b.addEventListener('click',async()=>{if(confirm('이 기록을 삭제할까요?')){setRecords(getRecords().filter(x=>x.id!==b.dataset.delete));await supabaseInitPromise;if(cloudReady&&sbClient&&cloudUserId){const {error}=await sbClient.from('bareunsori_records').delete().eq('client_id',b.dataset.delete).eq('owner_id',cloudUserId);if(error){console.error(error);toast('로컬 기록은 삭제했지만 클라우드 삭제에 실패했어요.');}}await showHistory();toast('기록을 삭제했어요.');}}));
+ showScreen('history');}
+function fillExample(i=0){const e=examples[i%examples.length];$('articleTitle').value=e.title;$('publisher').value=e.publisher;$('authorDate').value=e.authorDate;$('articleText').value=e.text;$('articleUrl').value='';updateCount();showScreen('input');}
+function updateCount(){$('charCount').textContent=`${$('articleText').value.length.toLocaleString()}자`;}
+$('startBtn').addEventListener('click',()=>showScreen('input'));
+$('homeFromInput').addEventListener('click',()=>showScreen('home'));
+$('examplesBtn').addEventListener('click',()=>fillExample(0));
+$('loadDemoBtn').addEventListener('click',()=>fillExample(Math.floor(Math.random()*examples.length)));
+$('articleText').addEventListener('input',updateCount);
+$('analyzeBtn').addEventListener('click',startAnalysis);
+$('cancelLoading').addEventListener('click',()=>{clearTimeout(loadingTimer);showScreen('input')});
+$('askTopBtn').addEventListener('click',openQuestions);$('goAskBtn').addEventListener('click',openQuestions);
+$('backResultBtn').addEventListener('click',()=>showScreen('result'));
+$('questionForm').addEventListener('submit',e=>{e.preventDefault();const q=$('questionInput').value.trim();if(!q){toast('질문을 입력해 주세요.');$('questionInput').focus();return}chat.push({role:'user',text:q},{role:'assistant',text:answerQuestion(q)});currentArticle.questions=chat;$('questionInput').value='';renderChat();});
+$('clearChatBtn').addEventListener('click',()=>{if(confirm('이 문장의 질문과 답변을 지울까요?')){chat=[];currentArticle.questions=[];renderChat();toast('대화를 지웠어요.')}});
+$('goChecklistBtn').addEventListener('click',()=>{currentArticle.checks=currentArticle.checks||{};renderChecklist();showScreen('checklist')});
+$('questionToChecklist').addEventListener('click',()=>{renderChecklist();showScreen('checklist')});
+$('checkTopAsk').addEventListener('click',openQuestions);
+$('checkBackBtn').addEventListener('click',()=>showScreen('result'));
+$('checklistForm').addEventListener('submit',e=>{e.preventDefault();currentArticle.checks=getChecks();openCard()});
+$('cardBackBtn').addEventListener('click',()=>{currentArticle.checks=getChecks();renderChecklist();showScreen('checklist')});
+$('cardCancelBtn').addEventListener('click',()=>{renderChecklist();showScreen('checklist')});
+$('cardForm').addEventListener('submit',e=>{e.preventDefault();if(!currentArticle)return; savedCard={decision:$('finalDecision').value,reason:$('decisionReason').value.trim(),suspicious:$('suspiciousPart').value.trim(),next:$('nextCheck').value.trim(),checks:currentArticle.checks||getChecks(),savedAt:new Date().toISOString(),title:currentArticle.title,publisher:currentArticle.publisher,authorDate:currentArticle.authorDate};currentArticle.card=savedCard;currentArticle.checks=savedCard.checks;saveAnalysis();renderCard(savedCard);$('savedCardArea').classList.remove('hidden');$('cardForm').classList.add('hidden');toast('리터러시 카드를 저장했어요.');});
+$('editCardBtn').addEventListener('click',()=>{$('savedCardArea').classList.add('hidden');$('cardForm').classList.remove('hidden');populateCard(savedCard)});
+$('deleteCardBtn').addEventListener('click',()=>{if(!currentArticle||!confirm('이 리터러시 카드를 삭제할까요?'))return;savedCard=null;currentArticle.card=null;const records=getRecords();const idx=records.findIndex(r=>r.id===currentArticle.id);if(idx>=0){records[idx].card=null;setRecords(records)}saveAnalysis();$('savedCardArea').classList.add('hidden');$('cardForm').classList.remove('hidden');toast('카드를 삭제했어요.');});
+$('finishBtn').addEventListener('click',()=>{saveAnalysis();showScreen('home')});
+$('newArticleBtn').addEventListener('click',()=>{if(currentArticle)saveAnalysis();$('articleText').value='';$('articleTitle').value='';$('publisher').value='';$('authorDate').value='';$('articleUrl').value='';updateCount();showScreen('input')});
+$('saveAnalysisBtn').addEventListener('click',saveAnalysis);
+$('historyBtn').addEventListener('click',showHistory);$('backHomeHistory').addEventListener('click',()=>showScreen('home'));
+$('exportBtn').addEventListener('click',()=>{const records=getRecords();if(!records.length){toast('내보낼 기록이 없습니다.');return}const blob=new Blob([JSON.stringify(records,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='bareunsori-records.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);toast('JSON 파일 내보내기를 시작했어요.')});
+$('deleteAllBtn').addEventListener('click',async()=>{if(confirm('이 브라우저와 현재 익명 사용자 계정의 바른소리 분석 기록을 모두 삭제할까요? 이 작업은 되돌릴 수 없습니다.')){localStorage.removeItem(KEY);await supabaseInitPromise;if(cloudReady&&sbClient&&cloudUserId){const {error}=await sbClient.from('bareunsori_records').delete().eq('owner_id',cloudUserId);if(error){console.error(error);toast('로컬 기록은 삭제했지만 클라우드 삭제에 실패했어요.');}}await showHistory();toast('분석 기록을 삭제했어요.')}});
+$('cardPreview').addEventListener('click',()=>{});
+})();
+</script>
+</body>
+</html>
